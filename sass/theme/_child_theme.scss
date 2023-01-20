@@ -135,8 +135,13 @@ h1 {
     19% { opacity: 0 }
     100% { opacity: 0 }
 }
+.thumbnail-image {
+	opacity: 0.6;
+}
 
-
+.thumbnail-image:hover {
+	opacity: 1.0;
+}
 
 //Slideshow Styles
 
