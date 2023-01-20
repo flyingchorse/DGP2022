@@ -175,9 +175,9 @@ h1 {
 	color: #FFFFFF;
 }
 
-.navbar-light .navbar-nav .nav-link {
-	color: #FFFFFF;	
-}
+// .navbar-light .navbar-nav .nav-link {
+// 	color: #FFFFFF;	
+// }
 .navbar-brand {
 	position: relative;
 	padding-bottom: 12px;
@@ -1032,7 +1032,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
 	
 }
 
-.navbar {
+.home .navbar {
 	background-color: rgba(128, 128, 128, 0.569);
 	@include for-phones(){
 		background-color:unset;
