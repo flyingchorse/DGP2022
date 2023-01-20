@@ -254,11 +254,7 @@ border: none;
 
 }
 
-#landing-carousel {
-	z-index: -1;
-	margin-top: -78px;
-	
-}
+
 
  .carousel-image-holder {
 // 	height: 550px;
@@ -485,6 +481,9 @@ height: 630px;
 	}
 	
 	}
+
+
+	// Media query for max 1440px
 @media (max-width: 1440px) {
 	
 	
@@ -512,9 +511,13 @@ height: 470px;
 	}
 	
 }
+		// Media query for max 1440px.........................................
 
+	@mixin for-bigdesktop {
 	@media (pointer: coarse)  and (min-device-width: 1024px) {
 		
+		@content;
+
 		#wrapper-hero {
 		margin-top: 120px;
 		padding-bottom: 150px!important;
@@ -527,12 +530,16 @@ height: 470px;
 		
 		}
 	
+	}
+	
+		// Media query for max 1440.........................................
 
+
+		// Media query for max 996.........................................
+@mixin for-laptop {	
+@media (max-width: 1024px) {	
 	
-	
-@media (max-width: 996px) {	
-	
-	
+	@content;
 	.container {
 		width: 100%;
 	}
@@ -559,10 +566,12 @@ height: 470px;
 		padding-bottom: 378px;
 	}
 }
-
-	
+}
+		// Media query for max 996.........................................
+	// Media query for max 775.........................................
+@mixin for-small-laptop {	
 @media (max-width: 775px) {
-	
+	@content;
 	
 // 	.carousel-image-holder {
 // 	height: 440px;
@@ -593,10 +602,11 @@ height: 470px;
 	
 	}
 
-	
-
+}
+@mixin for-phone-only {
 @media (max-width: 575px) {
 	
+	@content;	
 	
 	#hero-slides {
 	padding: 0;
@@ -631,6 +641,8 @@ height: 470px;
 body {
 		padding-bottom: 772px;
 	}
+
+}
 
 }
 
@@ -815,14 +827,16 @@ body {
         max-width: 20%;
     }
 }
+@mixin for-phones {
 @media (min-width: 720px) {
+	@content;
     .col-md-2dot4 {
         -webkit-box-flex: 0;
         -ms-flex: 0 0 20%;
         flex: 0 0 20%;
         max-width: 20%;
     }
-}
+}}
 @media (min-width: 960px) {
     .col-lg-2dot4 {
         -webkit-box-flex: 0;
@@ -1004,4 +1018,23 @@ and (-webkit-min-device-pixel-ratio: 2) {
 	   left: -9999px !important;
 		}
 
+}
+
+#landing-carousel {
+	z-index: -1;
+	
+	
+@include for-phones(){
+	margin-top: -80px;
+}
+
+	
+	
+}
+
+.navbar {
+	background-color: rgba(128, 128, 128, 0.569);
+	@include for-phones(){
+		background-color:unset;
+	}
 }
