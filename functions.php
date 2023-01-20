@@ -839,3 +839,95 @@ function understrap_post_nav() {
 	</nav><!-- .navigation -->
 	<?php
 }
+
+function projectnav() {
+	if ( $post->post_parent ) {
+	
+		$args = array(
+	'post_type' => 'page',
+	'meta_query' => array(
+		array(
+			'key' => 'linked_project',
+			'value' => $post->post_parent,
+		)
+	)
+ );
+$postslist = get_posts( $args );
+	
+	
+	$grandparentID = $postslist[0]->ID;
+	
+	if ( $postslist[0]->ID ) {
+    $grandparent = wp_list_pages( array(
+        'title_li' => '',
+        'depth' => 0,
+        'css_class' => 'nav-item',
+        'post_type' => 'page',
+        'include' => $grandparentID,
+        'echo'     => 0,
+        'walker'	=> new BS_Page_Walker()
+    ) );
+}
+	
+    $parent = wp_list_pages( array(
+        'title_li' => '',
+        'depth' => 0,
+        'css_class' => 'nav-item',
+        'post_type' => 'projects',
+        'include' => $post->post_parent,
+        'echo'     => 0,
+        'walker'	=> new BS_Page_Walker()
+    ) );
+} else {
+	
+			$args = array(
+	'post_type' => 'page',
+	'meta_query' => array(
+		array(
+			'key' => 'linked_project',
+			'value' => $post->ID,
+		)
+	)
+ );
+$postslist = get_posts( $args );
+
+	
+	
+	if ( $postslist) {
+		$grandparentID = $postslist[0]->ID;
+    $grandparent = wp_list_pages( array(
+        'title_li' => '',
+        'depth' => 0,
+        'css_class' => 'nav-item',
+        'post_type' => 'page',
+        'include' => $grandparentID,
+        'echo'     => 0,
+        'walker'	=> new BS_Page_Walker()
+    ) );
+}
+    $parent = wp_list_pages( array(
+        'title_li' => '',
+        'css_class' => 'nav-item',
+        'depth' => 1,
+        'post_type' => 'projects',
+        'include' => $post->ID,
+        'echo'     => 0,
+        'walker'	=> new BS_Page_Walker()
+        
+    ) );
+}
+		
+if ( $post->post_parent ) {
+    $children = wp_list_pages( array(
+        'title_li' => '',
+        'depth' => 0,
+        'css_class' => 'nav-item',
+        'post_type' => 'projects',
+        'include' => $post->ID,
+        'echo'     => 0,
+        'walker'	=> new BS_Page_Walker()
+    ) );
+} 
+
+
+}

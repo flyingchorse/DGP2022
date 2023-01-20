@@ -17,8 +17,12 @@ $sidebar_pos = get_theme_mod( 'understrap_sidebar_position' );
 ?>
 
 
-	 
+<?php
+	
+	// this template is pulling in the thumbnails from the underlying galleries.
+	
+	 thumbnail_feed($post->ID);?> 
 	 	
-</div><!-- #index-wrapper -->
 
-<?php get_footer('landing'); ?>
+
+<?php get_footer(); ?>

@@ -23,59 +23,78 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 <body <?php body_class('landingpage'); ?>>
 
+<?php $landingimage1 = get_field('landing_image_1'); ?>
+<?php $landingimage2 = get_field('landing_image_2'); ?>
+<?php $landingimage3 = get_field('landing_image_3'); ?>
+
+
 <?php do_action( 'wp_body_open' ); ?>
 <div class="site" id="page">
 
 	<!-- ******************* The Navbar Area ******************* -->
 	<div id="wrapper-navbar" itemscope itemtype="http://schema.org/WebSite">
-
+		
 		<a class="skip-link sr-only sr-only-focusable" href="#content"><?php esc_html_e( 'Skip to content', 'understrap' ); ?></a>
 
+
+		<nav class="navbar navbar-expand-md navbar-light justify-content-end">
 		
-
-		<?php if ( 'container' == $container ) : ?>
-			<div class="container">
-		<?php endif; ?>
-
-					<!-- Your site title as branding in the menu -->
-					<?php if ( ! has_custom_logo() ) { ?>
-
-						<?php if ( is_front_page() && is_home() ) : ?>
-
-							<h1 class="navbar-brand"><a rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" itemprop="url"><?php bloginfo( 'name' ); ?><span class="brandnamestyle"> <?php bloginfo ( 'description' ); ?></span></a></h1>
-
-						<?php else : ?>
-
-							<a class="navbar-brand" rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" itemprop="url"><?php bloginfo( 'name' ); ?><span class="brandnamestyle"> <?php bloginfo ( 'description' ); ?></span></a>
-
-						<?php endif; ?>
-
-
-					<?php } else {
-						the_custom_logo();
-					} ?><!-- end custom logo -->
-			</div>
-			<nav class="navbar navbar-light justify-content-center">
-					
-			<a href="../home" class="navbar-toggler-icon landingburger">
-
-				<!-- The WordPress Menu goes here -->
-				<?php wp_nav_menu(
-					array(
-						'theme_location'  => 'primary',
-						'container_class' => 'collapse navbar-collapse justify-content-center',
-						'container_id'    => 'navbarNavDropdown',
-						'menu_class'      => 'navbar-nav text-center',
-						'fallback_cb'     => '',
-						'menu_id'         => 'main-menu',
-						'depth'           => 3,
-						'walker'          => new Understrap_WP_Bootstrap_Navwalker(),
-					)
-				); ?>
 			<?php if ( 'container' == $container ) : ?>
-		<!-- .container -->
+				<div class="container">
 			<?php endif; ?>
 
-		</nav><!-- .site-navigation -->
+						<!-- Your site title as branding in the menu -->
+						<?php if ( ! has_custom_logo() ) { ?>
 
+							<?php if ( is_front_page() && is_home() ) : ?>
+
+								<h1 class="navbar-brand"><a rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" itemprop="url"><?php bloginfo( 'name' ); ?><span class="brandnamestyle"> <?php bloginfo ( 'description' ); ?></span></a></h1>
+
+							<?php else : ?>
+
+								<a class="navbar-brand" rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" itemprop="url"><?php bloginfo( 'name' ); ?><span class="brandnamestyle"> <?php bloginfo ( 'description' ); ?></span></a>
+
+							<?php endif; ?>
+
+
+						<?php } else {
+							the_custom_logo();
+						} ?><!-- end custom logo -->
+				
+				
+						
+				<button class="navbar-toggler justify-content-end" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="<?php esc_attr_e( 'Toggle navigation', 'understrap' ); ?>">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+
+
+					<!-- The WordPress Menu goes here -->
+					<?php wp_nav_menu(
+						array(
+							'theme_location'  => 'primary',
+							'container_class' => 'collapse navbar-collapse justify-content-end navbar-light',
+							'container_id'    => 'navbarNavDropdown',
+							'menu_class'      => 'navbar-nav',
+							'fallback_cb'     => '',
+							'menu_id'         => 'main-menu',
+							'depth'           => 3,
+							'walker'          => new Understrap_WP_Bootstrap_Navwalker(),
+						)
+					); ?>
+				<?php if ( 'container' == $container ) : ?>
+				</div>
+			<!-- .container -->
+				<?php endif; ?>
+
+		</nav><!-- .site-navigation -->
+		
 	</div><!-- #wrapper-navbar end -->
+
+	<div id="landing-carousel" class="carousel slide carousel-fade" data-ride="carousel" data-pause="false">
+  		<div class="carousel-inner">
+			<div class="carousel-item active fullbleedimage" style="background-image: url('<?php echo $landingimage1['url']; ?>');"></div>
+			<div class="carousel-item  fullbleedimage" style="background-image: url('<?php echo $landingimage2['url']; ?>');"></div>
+			<div class="carousel-item  fullbleedimage" style="background-image: url('<?php echo $landingimage3['url']; ?>');"></div>
+		</div>
+	</div>
+	
