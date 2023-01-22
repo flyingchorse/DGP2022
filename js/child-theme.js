@@ -7084,9 +7084,8 @@ jQuery(document).ready(function () {
 
   if (slide) {
     goToSlide(slide);
-  }
+  } //jQuery('[data-toggle="tooltip"]').tooltip();
 
-  jQuery('[data-toggle="tooltip"]').tooltip();
 });
 
 function goToSlide(number) {

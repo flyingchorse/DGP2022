@@ -14,7 +14,7 @@ jQuery(document).ready(function(){
 	goToSlide(slide);
 	}
 	
-	jQuery('[data-toggle="tooltip"]').tooltip();
+	//jQuery('[data-toggle="tooltip"]').tooltip();
 
 	
 	
