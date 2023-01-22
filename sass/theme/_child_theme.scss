@@ -121,11 +121,11 @@ h1 {
     100% { opacity: 0 }
 }
 .thumbnail-image {
-	opacity: 0.6;
+	opacity: 1.0;
 }
 
 .thumbnail-image:hover {
-	opacity: 1.0;
+	opacity: 0.5;
 }
 
 //Slideshow Styles
