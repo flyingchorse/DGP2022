@@ -175,9 +175,9 @@ h1 {
 	color: #FFFFFF;
 }
 
-// .navbar-light .navbar-nav .nav-link {
-// 	color: #FFFFFF;	
-// }
+ .navbar-light .navbar-nav .nav-link {
+ 	color: #FFFFFF;	
+ }
 .navbar-brand {
 	position: relative;
 	padding-bottom: 12px;
@@ -234,6 +234,8 @@ padding-top: 1em;
 
 .navbar-toggler {
 border: none;
+padding: 0 0 1rem 0;
+
 }
 
 #wrapper-hero {
@@ -387,6 +389,7 @@ max-width: 90vw;
 }
 .navbar-light .navbar-nav .active>.nav-link {
 	border-bottom: 1px solid black;
+	
 	
 }
 
