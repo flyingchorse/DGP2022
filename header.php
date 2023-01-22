@@ -30,7 +30,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 		<a class="skip-link sr-only sr-only-focusable" href="#content"><?php esc_html_e( 'Skip to content', 'understrap' ); ?></a>
 
-		<nav id="main-nav" class="navbar navbar-expand-md justify-content-end">
+		<nav id="main-nav" class="navbar navbar-expand-md navbar-light justify-content-end">
 
 		<?php if ( 'container' == $container ) : ?>
 			<div class="container">
@@ -64,7 +64,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 				<?php wp_nav_menu(
 					array(
 						'theme_location'  => 'primary',
-						'container_class' => 'collapse navbar-collapse justify-content-end',
+						'container_class' => 'collapse navbar-collapse justify-content-end navbar-light',
 						'container_id'    => 'navbarNavDropdown',
 						'menu_class'      => 'navbar-nav',
 						'fallback_cb'     => '',
