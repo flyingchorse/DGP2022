@@ -54,7 +54,7 @@ function child_theme_setup() {
 add_image_size( 'grid-image', 352,229, true );
 add_image_size( 'grid-aspect', 352, false );
 add_image_size( 'grid-height', 99999, 460, false );
-add_image_size( 'grid-crop-to-height', 690, 460, true );
+add_image_size( 'grid-crop-to-height', 99999, 460, true );
 add_image_size( 'grid-journal', 352,352, true );
 
 
@@ -724,7 +724,7 @@ function thumbnail_feed($theparent)
 					
 					<?php if (!$thevimeoid) { ?>
 					
-					<a class="align-bottom thumbnail-image dragg" href="<?php $gallery_url =  get_permalink($thegallerylinkid); echo $gallery_url ; ?>" ><?php $the_feed_thumb =  wp_get_attachment_image($attachment, 'grid-crop-to-height',  'false' , array( "class" => " align-bottom", "draggable" => "false")); echo $the_feed_thumb; ?></a> <?php } else {
+					<a class="align-bottom thumbnail-image dragg" href="<?php $gallery_url =  get_permalink($thegallerylinkid); echo $gallery_url ; ?>" ><?php $the_feed_thumb =  wp_get_attachment_image($attachment, 'grid-image',  'false' , array( "class" => " align-bottom", "draggable" => "false")); echo $the_feed_thumb; ?></a> <?php } else {
 						?>
 						<a class='align-bottom thumbnail-image' href='<?php $gallery_url =  get_permalink($thegallerylinkid); echo $gallery_url ; ?>'></span><div class='feed-embed embed-container'><iframe src='https://player.vimeo.com/video/<?php echo $thevimeoid; ?>?background=1' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div></a>
 						<?php
