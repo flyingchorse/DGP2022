@@ -24,9 +24,9 @@ $sidebar_pos = get_theme_mod( 'understrap_sidebar_position' );
 	 thumbnail_feed($post->ID);?> 
 	 	<div class="wrapper" id="page-wrapper">
 
-<div class="conatiner-fluid" id="content" tabindex="-1">
+<div class="container-fluid px-0" id="content" tabindex="-1">
 
-	<div class="row">
+	<div class="row mx-0">
 
 		<!-- Do the left sidebar check -->
 		<?php get_template_part( 'global-templates/left-sidebar-check' ); ?>
@@ -57,4 +57,5 @@ $sidebar_pos = get_theme_mod( 'understrap_sidebar_position' );
 </div><!-- #page-wrapper -->
 
 
-<?php get_footer(); ?>
+<?php 
+get_footer(); 
