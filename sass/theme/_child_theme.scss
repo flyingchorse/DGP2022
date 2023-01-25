@@ -3,13 +3,7 @@ html {
 	position: relative;
 	min-height: 100%;
 }
-body {
-	//padding-bottom: 796px;
-	padding-bottom: 378px;
-	text-transform: uppercase;
-	color: rgba(0,0,0,.5);
-	font-size: 0.8rem;
-}
+
 
 .widget_eu_cookie_law_widget {
 	width: 100%;
@@ -1019,7 +1013,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
 }
 
 .home .navbar {
-	background-color: rgba(128, 128, 128, 0.569);
+	background-color: #363636;
 	@include for-phones(){
 		background-color:unset;
 	}
