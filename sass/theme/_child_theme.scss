@@ -1040,3 +1040,7 @@ and (-webkit-min-device-pixel-ratio: 2) {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+.thumb-embed {
+	z-index: -10;
+}
