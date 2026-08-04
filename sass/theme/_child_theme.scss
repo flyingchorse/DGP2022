@@ -1108,3 +1108,6 @@ and (-webkit-min-device-pixel-ratio: 2) {
   .photo-card img { transition: none; }
   .photo-card:hover img { transform: none; }
 }
+.thumb-video-card .embed-container iframe {
+  pointer-events: none;
+}
