@@ -24,7 +24,10 @@ if ( ! empty( $ids[0] ) ) :
 					$loopcount = 0;
 
 					foreach ( $ids[0] as $id ) :
-						$id = esc_attr( $id );
+						$id          = esc_attr( $id );
+						$video_title = dgp2022_get_vimeo_title( $id );
+						$video_label = $video_title ? $video_title : sprintf( 'Video %d', $loopcount + 1 );
+						$video_label = esc_attr( $video_label );
 						?>
 
 						<div class="carousel-item <?php if ( $loopcount == 1 ) { echo 'active'; }; ?>">
@@ -40,13 +43,13 @@ if ( ! empty( $ids[0] ) ) :
 								</div><!-- END OF ROW -->
 
 								<div class="embed-container">
-									<iframe src="https://player.vimeo.com/video/<?php echo $id; ?>" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+									<iframe src="https://player.vimeo.com/video/<?php echo $id; ?>" title="<?php echo $video_label; ?>" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
 								</div>
 							</div>
 						</div>
 
 						<?php
-						$thumbnailelement .= "<div class='col-md-4 col-xl-4 thumb-video-card' title='' ><a class='thumbnail-image' href='#' data-target='#carouselExampleControls' change-slide-to='" . $loopcount . "' ><div class='embed-container'><iframe src='https://player.vimeo.com/video/" . $id . "?background=1' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div></a></div>";
+						$thumbnailelement .= "<div class='col-md-4 col-xl-4 thumb-video-card' title='' ><a class='thumbnail-image' href='#' data-target='#carouselExampleControls' change-slide-to='" . $loopcount . "' aria-label='" . $video_label . "' title='" . $video_label . "'><div class='embed-container'><iframe src='https://player.vimeo.com/video/" . $id . "?background=1' title='" . $video_label . "' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div></a></div>";
 						$loopcount++;
 					endforeach;
 					?>

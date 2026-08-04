@@ -45,7 +45,45 @@ add_action( 'after_setup_theme', 'add_child_theme_textdomain' );
 // Use ACF to create video slide text box to enter in video ID
 // Vimeo embed code: <iframe src="https://player.vimeo.com/video/86035157" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
-	
+/**
+ * Look up a Vimeo video's title via its oEmbed endpoint, caching the result
+ * so we don't hit the Vimeo API on every page load. Used to give Vimeo
+ * embeds/links an accessible name for screen readers.
+ */
+function dgp2022_get_vimeo_title( $video_id ) {
+	$video_id = preg_replace( '/[^0-9]/', '', $video_id );
+
+	if ( empty( $video_id ) ) {
+		return '';
+	}
+
+	$transient_key = 'dgp_vimeo_title_' . $video_id;
+	$title         = get_transient( $transient_key );
+
+	if ( false !== $title ) {
+		return $title;
+	}
+
+	$response = wp_remote_get(
+		'https://vimeo.com/api/oembed.json?url=' . rawurlencode( 'https://vimeo.com/' . $video_id ),
+		array( 'timeout' => 3 )
+	);
+
+	if ( is_wp_error( $response ) || 200 !== wp_remote_retrieve_response_code( $response ) ) {
+		// Try again sooner on failure rather than caching a miss for a week.
+		set_transient( $transient_key, '', HOUR_IN_SECONDS );
+		return '';
+	}
+
+	$body  = json_decode( wp_remote_retrieve_body( $response ), true );
+	$title = isset( $body['title'] ) ? $body['title'] : '';
+
+	set_transient( $transient_key, $title, WEEK_IN_SECONDS );
+
+	return $title;
+}
+
+
 /* Adding in Digidol Custom functions areas	 */
 // 
 
