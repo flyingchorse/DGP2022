@@ -649,9 +649,9 @@ function thumbnail_overview($theparent)
 		$counter = 1;
 		$slidecounter = 0;
 	?>
-	<div class="container-fluid thumb-grid">
+	
 		
-	<div class="row">
+	<div class="photo-grid">
 	 <?php
 	
 	foreach ( $childpost as $child){
@@ -663,14 +663,14 @@ function thumbnail_overview($theparent)
 				
 				
 				?>
-				<div class="card align-self-center">
 				
-					<img class="align-bottom thumbnail-image card-img"  ><?php echo get_the_post_thumbnail($childpost[$i]['postID'], 'grid-height', array( "class" => " align-bottom", "draggable" => "false")); ?>
-					<div class="card-img-overlay">
-					<h5 class="card-title"><?php  echo $childpost[$i]['title'];  ?></h5>
-					<a href="<?php $gallery_url =  get_permalink($childpost[$i]['postID']); echo $gallery_url ; ?>" class="stretched-link"></a>
-					</div>
-				</div>
+					<a class="photo-card" href="<?php $gallery_url =  get_permalink($childpost[$i]['postID']); echo $gallery_url ; ?>" class="stretched-link">
+						<?php echo get_the_post_thumbnail($childpost[$i]['postID'], 'grid-height', array( "class" => " align-bottom", "draggable" => "false")); ?>
+						<span class="photo-card__label">
+							<?php  echo $childpost[$i]['title'];  ?>
+						</span>
+					</a>
+				
 				<?php
 				$slidecounter++;
 					
@@ -683,7 +683,7 @@ function thumbnail_overview($theparent)
 
 		?>
 	</div>
-	</div>
+	
 
 		 <?php
 }	 

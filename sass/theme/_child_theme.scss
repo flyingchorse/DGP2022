@@ -1055,3 +1055,56 @@ and (-webkit-min-device-pixel-ratio: 2) {
 .thumb-embed {
 	z-index: -10;
 }
+
+.photo-grid {
+	padding-top: 50px;
+	margin-bottom:-50px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0px;
+}
+.photo-grid::after { content: ""; flex-grow: 999999; }
+
+/* the link is the flex item */
+.photo-card {
+  position: relative;      /* anchor for the overlay */
+  display: flex;           /* lets the img set the width */
+  height: 240px;
+  flex: 1 1 auto;          /* basis: auto = sized by content */
+  overflow: hidden;
+  text-decoration: none;
+}
+
+/* nested flex — img grows to fill the stretched link */
+.photo-card img {
+  height: 100%;
+  width: auto;             /* natural width at 240px tall */
+  min-width: 0;
+  flex: 1 1 auto;
+  object-fit: cover;
+  display: block;
+}
+
+.photo-card__label {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: .75rem 1rem;
+  background: linear-gradient(transparent, rgba(0,0,0,.78));
+  color: #fff;
+  font-weight: 300;
+  font-size: .95rem;
+}
+
+.photo-card img { transition: transform .4s ease; }
+.photo-card:hover img { transform: scale(1.05); }
+
+/* keyboard users must see focus */
+.photo-card:focus-visible {
+  outline: 3px solid #0d6efd;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .photo-card img { transition: none; }
+  .photo-card:hover img { transform: none; }
+}
