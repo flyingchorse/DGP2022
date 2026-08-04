@@ -53,7 +53,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 							<?php else : ?>
 
 								<a class="navbar-brand" rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" itemprop="url"><?php bloginfo( 'name' ); ?><span class="brandnamestyle"> <?php bloginfo ( 'description' ); ?></span></a>
-
+								
 							<?php endif; ?>
 
 
@@ -87,7 +87,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 				<?php endif; ?>
 
 		</nav><!-- .site-navigation -->
-		
+		<div class="container h1straplline"><h1>Infrastructure & Archival Photography in South Wales</h1></div>
 	</div><!-- #wrapper-navbar end -->
 
 	<div id="landing-carousel" class="carousel slide carousel-fade" data-ride="carousel" data-pause="false">

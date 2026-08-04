@@ -10,7 +10,7 @@
 
 	<header class="entry-header  <?php if (is_page_template('page-templates/foliopage.php')) { echo is_page_template('foliopage.php');?> hidden-xl-down<?php } ?> ">
 
-<!-- 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?> -->
+		<?php if (! is_front_page() ) { the_title( '<h1 class="entry-title doobydoo">', '</h1>' ); } ?>
 
 	</header><!-- .entry-header -->
 
