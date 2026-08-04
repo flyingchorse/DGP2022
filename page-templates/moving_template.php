@@ -64,7 +64,7 @@ $sidebar_pos = get_theme_mod( 'understrap_sidebar_position' );
 					
 							
 						<?php 
-							$thumbnailelement .= "<div class='col-md-4 col-xl-4 thumb-video-card' title='' ><a class='thumbnail-image' href='#' data-target='#carouselExampleControls' change-slide-to='" . $loopcount ."' ><div class='blocker'></div><div class='embed-container'><iframe src='https://player.vimeo.com/video/" . $id . "?background=1' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div></a></div>";
+							$thumbnailelement .= "<div class='col-md-4 col-xl-4 thumb-video-card' title='' ><a class='thumbnail-image' href='#' data-target='#carouselExampleControls' change-slide-to='" . $loopcount ."' ><div class='embed-container'><iframe src='https://player.vimeo.com/video/" . $id . "?background=1' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe></div></a></div>";
 							$loopcount++;
 		}
 	}
