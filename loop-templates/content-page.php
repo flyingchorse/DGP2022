@@ -8,7 +8,7 @@
 ?>
 <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 
-	<header class="entry-header container <?php if (is_page_template('page-templates/foliopage.php')) { echo is_page_template('foliopage.php');?> hidden-xl-down<?php } ?> ">
+	<header class="entry-header <?php if (is_front_page()){echo 'container';} if (is_page_template('page-templates/foliopage.php')) { echo is_page_template('foliopage.php');?> hidden-xl-down<?php } ?> ">
 
 		<?php if (! is_front_page() ) { the_title( '<h1 class="entry-title doobydoo">', '</h1>' ); } ?>
 
