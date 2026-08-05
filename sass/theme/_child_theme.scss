@@ -1022,15 +1022,11 @@ and (-webkit-min-device-pixel-ratio: 2) {
 .landingpage .h1straplline {
 	color: #FFFFFF;
 	margin-top: -23px;
-
-	@include for-phones(){
-		color: #000000;
-	}
-}
-.landingpage .h1straplline h1 {
+	text-transform: uppercase;
 	font-size: 0.75rem;
-	color: #FFFFFF;
+
 }
+
 .fullbleedimage {
 	height: 55vh;
 	width: 100%;
