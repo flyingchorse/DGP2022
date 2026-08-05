@@ -1026,7 +1026,12 @@ and (-webkit-min-device-pixel-ratio: 2) {
 	font-size: 0.75rem;
 
 }
-
+.landingpage .h1straplline h1 {
+	text-transform: uppercase;
+	color: #FFFFFF;
+	font-size: 0.75rem;
+	margin-top: -23px;
+}
 .fullbleedimage {
 	height: 55vh;
 	width: 100%;
