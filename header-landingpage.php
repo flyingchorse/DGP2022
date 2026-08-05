@@ -76,7 +76,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 				<?php endif; ?>
 
 		</nav><!-- .site-navigation -->
-		<?php $strapline_tag = is_front_page() ? 'h1' : 'p'; ?>
+		<?php $strapline_tag = is_front_page() ? 'h1' : 'span'; ?>
 		<div class="container h1straplline"><<?php echo $strapline_tag; ?>>Infrastructure & Archival Photography in South Wales</<?php echo $strapline_tag; ?>></div>
 	</div><!-- #wrapper-navbar end -->
 
