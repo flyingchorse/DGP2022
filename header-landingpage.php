@@ -77,7 +77,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 		</nav><!-- .site-navigation -->
 		<?php $strapline_tag = is_front_page() ? 'h1' : 'span'; ?>
-		<div class="container h1straplline"><<?php echo $strapline_tag; ?>>Infrastructure & Archival Photography in South Wales</<?php echo $strapline_tag; ?>></div>
+		<div class="container h1straplline"><<?php echo $strapline_tag; ?> class="h1style">Infrastructure & Archival Photography in South Wales</<?php echo $strapline_tag; ?>></div>
 	</div><!-- #wrapper-navbar end -->
 
 	<div id="landing-carousel" class="carousel slide carousel-fade" data-ride="carousel" data-pause="false">
